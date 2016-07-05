@@ -1,0 +1,569 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		52CE89D41D2B8712004E2E2A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE89D31D2B8712004E2E2A /* main.m */; };
+		52CE89D71D2B8712004E2E2A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE89D61D2B8712004E2E2A /* AppDelegate.m */; };
+		52CE89DA1D2B8712004E2E2A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE89D91D2B8712004E2E2A /* ViewController.m */; };
+		52CE89DD1D2B8712004E2E2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CE89DB1D2B8712004E2E2A /* Main.storyboard */; };
+		52CE89DF1D2B8712004E2E2A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52CE89DE1D2B8712004E2E2A /* Assets.xcassets */; };
+		52CE89E21D2B8712004E2E2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CE89E01D2B8712004E2E2A /* LaunchScreen.storyboard */; };
+		52CE89ED1D2B8712004E2E2A /* JHSlidePageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE89EC1D2B8712004E2E2A /* JHSlidePageViewControllerTests.m */; };
+		52CE89F81D2B8712004E2E2A /* JHSlidePageViewControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE89F71D2B8712004E2E2A /* JHSlidePageViewControllerUITests.m */; };
+		52CE8A081D2B87D8004E2E2A /* JHRootPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8A071D2B87D8004E2E2A /* JHRootPageView.m */; };
+		52CE8A0B1D2B9B20004E2E2A /* JHOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8A0A1D2B9B20004E2E2A /* JHOneViewController.m */; };
+		52CE8A0E1D2B9B2D004E2E2A /* JHTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8A0D1D2B9B2D004E2E2A /* JHTwoViewController.m */; };
+		52CE8A111D2B9B38004E2E2A /* JHThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8A101D2B9B38004E2E2A /* JHThreeViewController.m */; };
+		52CE8A141D2B9EEC004E2E2A /* JHFourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8A131D2B9EEC004E2E2A /* JHFourViewController.m */; };
+		52CE8A171D2B9F5F004E2E2A /* JHFiveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8A161D2B9F5F004E2E2A /* JHFiveViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		52CE89E91D2B8712004E2E2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52CE89C71D2B8712004E2E2A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52CE89CE1D2B8712004E2E2A;
+			remoteInfo = JHSlidePageViewController;
+		};
+		52CE89F41D2B8712004E2E2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 52CE89C71D2B8712004E2E2A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 52CE89CE1D2B8712004E2E2A;
+			remoteInfo = JHSlidePageViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		52CE89CF1D2B8712004E2E2A /* JHSlidePageViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JHSlidePageViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		52CE89D31D2B8712004E2E2A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		52CE89D51D2B8712004E2E2A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		52CE89D61D2B8712004E2E2A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		52CE89D81D2B8712004E2E2A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		52CE89D91D2B8712004E2E2A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		52CE89DC1D2B8712004E2E2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		52CE89DE1D2B8712004E2E2A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		52CE89E11D2B8712004E2E2A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		52CE89E31D2B8712004E2E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52CE89E81D2B8712004E2E2A /* JHSlidePageViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JHSlidePageViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52CE89EC1D2B8712004E2E2A /* JHSlidePageViewControllerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHSlidePageViewControllerTests.m; sourceTree = "<group>"; };
+		52CE89EE1D2B8712004E2E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52CE89F31D2B8712004E2E2A /* JHSlidePageViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JHSlidePageViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		52CE89F71D2B8712004E2E2A /* JHSlidePageViewControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHSlidePageViewControllerUITests.m; sourceTree = "<group>"; };
+		52CE89F91D2B8712004E2E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		52CE8A061D2B87D8004E2E2A /* JHRootPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHRootPageView.h; sourceTree = "<group>"; };
+		52CE8A071D2B87D8004E2E2A /* JHRootPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHRootPageView.m; sourceTree = "<group>"; };
+		52CE8A091D2B9B20004E2E2A /* JHOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHOneViewController.h; sourceTree = "<group>"; };
+		52CE8A0A1D2B9B20004E2E2A /* JHOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHOneViewController.m; sourceTree = "<group>"; };
+		52CE8A0C1D2B9B2D004E2E2A /* JHTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHTwoViewController.h; sourceTree = "<group>"; };
+		52CE8A0D1D2B9B2D004E2E2A /* JHTwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHTwoViewController.m; sourceTree = "<group>"; };
+		52CE8A0F1D2B9B38004E2E2A /* JHThreeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHThreeViewController.h; sourceTree = "<group>"; };
+		52CE8A101D2B9B38004E2E2A /* JHThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHThreeViewController.m; sourceTree = "<group>"; };
+		52CE8A121D2B9EEC004E2E2A /* JHFourViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHFourViewController.h; sourceTree = "<group>"; };
+		52CE8A131D2B9EEC004E2E2A /* JHFourViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHFourViewController.m; sourceTree = "<group>"; };
+		52CE8A151D2B9F5F004E2E2A /* JHFiveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHFiveViewController.h; sourceTree = "<group>"; };
+		52CE8A161D2B9F5F004E2E2A /* JHFiveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHFiveViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		52CE89CC1D2B8712004E2E2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52CE89E51D2B8712004E2E2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52CE89F01D2B8712004E2E2A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		52CE89C61D2B8712004E2E2A = {
+			isa = PBXGroup;
+			children = (
+				52CE89D11D2B8712004E2E2A /* JHSlidePageViewController */,
+				52CE89EB1D2B8712004E2E2A /* JHSlidePageViewControllerTests */,
+				52CE89F61D2B8712004E2E2A /* JHSlidePageViewControllerUITests */,
+				52CE89D01D2B8712004E2E2A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		52CE89D01D2B8712004E2E2A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				52CE89CF1D2B8712004E2E2A /* JHSlidePageViewController.app */,
+				52CE89E81D2B8712004E2E2A /* JHSlidePageViewControllerTests.xctest */,
+				52CE89F31D2B8712004E2E2A /* JHSlidePageViewControllerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		52CE89D11D2B8712004E2E2A /* JHSlidePageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				52CE8A051D2B8791004E2E2A /* JHSlidePageView */,
+				52CE89D51D2B8712004E2E2A /* AppDelegate.h */,
+				52CE89D61D2B8712004E2E2A /* AppDelegate.m */,
+				52CE89D81D2B8712004E2E2A /* ViewController.h */,
+				52CE89D91D2B8712004E2E2A /* ViewController.m */,
+				52CE89DB1D2B8712004E2E2A /* Main.storyboard */,
+				52CE89DE1D2B8712004E2E2A /* Assets.xcassets */,
+				52CE89E01D2B8712004E2E2A /* LaunchScreen.storyboard */,
+				52CE89E31D2B8712004E2E2A /* Info.plist */,
+				52CE89D21D2B8712004E2E2A /* Supporting Files */,
+				52CE8A091D2B9B20004E2E2A /* JHOneViewController.h */,
+				52CE8A0A1D2B9B20004E2E2A /* JHOneViewController.m */,
+				52CE8A0C1D2B9B2D004E2E2A /* JHTwoViewController.h */,
+				52CE8A0D1D2B9B2D004E2E2A /* JHTwoViewController.m */,
+				52CE8A0F1D2B9B38004E2E2A /* JHThreeViewController.h */,
+				52CE8A101D2B9B38004E2E2A /* JHThreeViewController.m */,
+				52CE8A121D2B9EEC004E2E2A /* JHFourViewController.h */,
+				52CE8A131D2B9EEC004E2E2A /* JHFourViewController.m */,
+				52CE8A151D2B9F5F004E2E2A /* JHFiveViewController.h */,
+				52CE8A161D2B9F5F004E2E2A /* JHFiveViewController.m */,
+			);
+			path = JHSlidePageViewController;
+			sourceTree = "<group>";
+		};
+		52CE89D21D2B8712004E2E2A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				52CE89D31D2B8712004E2E2A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		52CE89EB1D2B8712004E2E2A /* JHSlidePageViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				52CE89EC1D2B8712004E2E2A /* JHSlidePageViewControllerTests.m */,
+				52CE89EE1D2B8712004E2E2A /* Info.plist */,
+			);
+			path = JHSlidePageViewControllerTests;
+			sourceTree = "<group>";
+		};
+		52CE89F61D2B8712004E2E2A /* JHSlidePageViewControllerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				52CE89F71D2B8712004E2E2A /* JHSlidePageViewControllerUITests.m */,
+				52CE89F91D2B8712004E2E2A /* Info.plist */,
+			);
+			path = JHSlidePageViewControllerUITests;
+			sourceTree = "<group>";
+		};
+		52CE8A051D2B8791004E2E2A /* JHSlidePageView */ = {
+			isa = PBXGroup;
+			children = (
+				52CE8A061D2B87D8004E2E2A /* JHRootPageView.h */,
+				52CE8A071D2B87D8004E2E2A /* JHRootPageView.m */,
+			);
+			name = JHSlidePageView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		52CE89CE1D2B8712004E2E2A /* JHSlidePageViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52CE89FC1D2B8712004E2E2A /* Build configuration list for PBXNativeTarget "JHSlidePageViewController" */;
+			buildPhases = (
+				52CE89CB1D2B8712004E2E2A /* Sources */,
+				52CE89CC1D2B8712004E2E2A /* Frameworks */,
+				52CE89CD1D2B8712004E2E2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JHSlidePageViewController;
+			productName = JHSlidePageViewController;
+			productReference = 52CE89CF1D2B8712004E2E2A /* JHSlidePageViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		52CE89E71D2B8712004E2E2A /* JHSlidePageViewControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52CE89FF1D2B8712004E2E2A /* Build configuration list for PBXNativeTarget "JHSlidePageViewControllerTests" */;
+			buildPhases = (
+				52CE89E41D2B8712004E2E2A /* Sources */,
+				52CE89E51D2B8712004E2E2A /* Frameworks */,
+				52CE89E61D2B8712004E2E2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52CE89EA1D2B8712004E2E2A /* PBXTargetDependency */,
+			);
+			name = JHSlidePageViewControllerTests;
+			productName = JHSlidePageViewControllerTests;
+			productReference = 52CE89E81D2B8712004E2E2A /* JHSlidePageViewControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		52CE89F21D2B8712004E2E2A /* JHSlidePageViewControllerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 52CE8A021D2B8712004E2E2A /* Build configuration list for PBXNativeTarget "JHSlidePageViewControllerUITests" */;
+			buildPhases = (
+				52CE89EF1D2B8712004E2E2A /* Sources */,
+				52CE89F01D2B8712004E2E2A /* Frameworks */,
+				52CE89F11D2B8712004E2E2A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				52CE89F51D2B8712004E2E2A /* PBXTargetDependency */,
+			);
+			name = JHSlidePageViewControllerUITests;
+			productName = JHSlidePageViewControllerUITests;
+			productReference = 52CE89F31D2B8712004E2E2A /* JHSlidePageViewControllerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		52CE89C71D2B8712004E2E2A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JH;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = kuxing;
+				TargetAttributes = {
+					52CE89CE1D2B8712004E2E2A = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = DG436C2BS3;
+					};
+					52CE89E71D2B8712004E2E2A = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 52CE89CE1D2B8712004E2E2A;
+					};
+					52CE89F21D2B8712004E2E2A = {
+						CreatedOnToolsVersion = 7.3;
+						TestTargetID = 52CE89CE1D2B8712004E2E2A;
+					};
+				};
+			};
+			buildConfigurationList = 52CE89CA1D2B8712004E2E2A /* Build configuration list for PBXProject "JHSlidePageViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 52CE89C61D2B8712004E2E2A;
+			productRefGroup = 52CE89D01D2B8712004E2E2A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				52CE89CE1D2B8712004E2E2A /* JHSlidePageViewController */,
+				52CE89E71D2B8712004E2E2A /* JHSlidePageViewControllerTests */,
+				52CE89F21D2B8712004E2E2A /* JHSlidePageViewControllerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		52CE89CD1D2B8712004E2E2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52CE89E21D2B8712004E2E2A /* LaunchScreen.storyboard in Resources */,
+				52CE89DF1D2B8712004E2E2A /* Assets.xcassets in Resources */,
+				52CE89DD1D2B8712004E2E2A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52CE89E61D2B8712004E2E2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52CE89F11D2B8712004E2E2A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		52CE89CB1D2B8712004E2E2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52CE8A0B1D2B9B20004E2E2A /* JHOneViewController.m in Sources */,
+				52CE8A0E1D2B9B2D004E2E2A /* JHTwoViewController.m in Sources */,
+				52CE89DA1D2B8712004E2E2A /* ViewController.m in Sources */,
+				52CE8A081D2B87D8004E2E2A /* JHRootPageView.m in Sources */,
+				52CE8A111D2B9B38004E2E2A /* JHThreeViewController.m in Sources */,
+				52CE89D71D2B8712004E2E2A /* AppDelegate.m in Sources */,
+				52CE8A141D2B9EEC004E2E2A /* JHFourViewController.m in Sources */,
+				52CE8A171D2B9F5F004E2E2A /* JHFiveViewController.m in Sources */,
+				52CE89D41D2B8712004E2E2A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52CE89E41D2B8712004E2E2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52CE89ED1D2B8712004E2E2A /* JHSlidePageViewControllerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		52CE89EF1D2B8712004E2E2A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				52CE89F81D2B8712004E2E2A /* JHSlidePageViewControllerUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		52CE89EA1D2B8712004E2E2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52CE89CE1D2B8712004E2E2A /* JHSlidePageViewController */;
+			targetProxy = 52CE89E91D2B8712004E2E2A /* PBXContainerItemProxy */;
+		};
+		52CE89F51D2B8712004E2E2A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 52CE89CE1D2B8712004E2E2A /* JHSlidePageViewController */;
+			targetProxy = 52CE89F41D2B8712004E2E2A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		52CE89DB1D2B8712004E2E2A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52CE89DC1D2B8712004E2E2A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		52CE89E01D2B8712004E2E2A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				52CE89E11D2B8712004E2E2A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		52CE89FA1D2B8712004E2E2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		52CE89FB1D2B8712004E2E2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		52CE89FD1D2B8712004E2E2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = JHSlidePageViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kuxing.JHSlidePageViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		52CE89FE1D2B8712004E2E2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = JHSlidePageViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kuxing.JHSlidePageViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		52CE8A001D2B8712004E2E2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JHSlidePageViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kuxing.JHSlidePageViewControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JHSlidePageViewController.app/JHSlidePageViewController";
+			};
+			name = Debug;
+		};
+		52CE8A011D2B8712004E2E2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = JHSlidePageViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kuxing.JHSlidePageViewControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JHSlidePageViewController.app/JHSlidePageViewController";
+			};
+			name = Release;
+		};
+		52CE8A031D2B8712004E2E2A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JHSlidePageViewControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kuxing.JHSlidePageViewControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JHSlidePageViewController;
+			};
+			name = Debug;
+		};
+		52CE8A041D2B8712004E2E2A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = JHSlidePageViewControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = kuxing.JHSlidePageViewControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = JHSlidePageViewController;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		52CE89CA1D2B8712004E2E2A /* Build configuration list for PBXProject "JHSlidePageViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52CE89FA1D2B8712004E2E2A /* Debug */,
+				52CE89FB1D2B8712004E2E2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		52CE89FC1D2B8712004E2E2A /* Build configuration list for PBXNativeTarget "JHSlidePageViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52CE89FD1D2B8712004E2E2A /* Debug */,
+				52CE89FE1D2B8712004E2E2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		52CE89FF1D2B8712004E2E2A /* Build configuration list for PBXNativeTarget "JHSlidePageViewControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52CE8A001D2B8712004E2E2A /* Debug */,
+				52CE8A011D2B8712004E2E2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		52CE8A021D2B8712004E2E2A /* Build configuration list for PBXNativeTarget "JHSlidePageViewControllerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				52CE8A031D2B8712004E2E2A /* Debug */,
+				52CE8A041D2B8712004E2E2A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 52CE89C71D2B8712004E2E2A /* Project object */;
+}
