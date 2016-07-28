@@ -10,43 +10,38 @@
 
 @interface JHRootPageView : UIView
 
+
+/**
+ *  选择按钮的父视图
+ */
+@property (nonatomic, strong) UIView *btnBgView;
+
 /**
  *  pageViewController
  */
 @property (nonatomic, strong) UIPageViewController *pageViewController;
-/**
- *  按钮
- */
-@property (nonatomic, strong)UIButton *topButton;
 
 /**
  *  滑动条
  */
 @property (nonatomic, strong) UILabel *slideLabel;
 
-
-
-
 /**
  *  初始化PageViewController
  *
  *  @param frame      视图位置大小
- *  @param array      视图数组
+ *  @param VcArray    视图数组
  *  @param title      按钮标题
- *  @param bottomLine 是否有地步滑动条
+ *  @param bottomLine 是否有底部滑动条
+ *  @param controller 添加到所在的控制器
  *
  *  @return
  */
 - (instancetype)initWithFrame:(CGRect)frame
                   controllers:(NSArray *)VcArray
                         title:(NSArray *)title
-                         type:(BOOL)bottomLine;
+                         type:(BOOL)bottomLine
+                addController:(UIViewController *)controller;
 
-/**
- *  初始化按钮
- *
- *  @param title 按钮标题数组
- */
-- (void)createButtonTitle:(NSArray *)title withBottomLine:(BOOL)bottomLine;
 
 @end

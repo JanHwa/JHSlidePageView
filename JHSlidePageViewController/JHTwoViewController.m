@@ -7,6 +7,7 @@
 //
 
 #import "JHTwoViewController.h"
+#import "JHFourViewController.h"
 
 @interface JHTwoViewController ()
 
@@ -18,6 +19,23 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor yellowColor];
+    [self createUI];
+}
+
+- (void)createUI
+{
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(100, 100, 150, 50);
+    [self.view addSubview:btn];
+    [btn setTitle:@"Jump to Four" forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    
+}
+
+- (void)btnClick:(UIButton *)sender
+{
+    JHFourViewController *four = [[JHFourViewController alloc] init];
+    [self.navigationController pushViewController:four animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

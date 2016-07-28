@@ -41,15 +41,18 @@
                   controllers:(NSArray *)VcArray
                         title:(NSArray *)title
                          type:(BOOL)bottomLine
+                addController:(UIViewController *)controller
+
 {
     self = [super initWithFrame:frame];
     if (self) {
         [self createButtonTitle:title withBottomLine:bottomLine];
-        [self createPageViewController:VcArray];
+        [self createPageViewController:VcArray addChildViewController:controller];
         _isBottom = bottomLine;
     }
     return self;
 }
+
 /**
  *  初始化按钮
  *
@@ -57,10 +60,13 @@
  */
 - (void)createButtonTitle:(NSArray *)title withBottomLine:(BOOL)bottomLine
 {
+    _btnBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
+    [self addSubview:_btnBgView];
+    
     for (NSInteger i = 0; i < title.count; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(kScreenWidth/(title.count) *i, 0,kScreenWidth/(title.count) , 30);
-        [self addSubview:btn];
+        btn.frame     = CGRectMake(kScreenWidth/(title.count) *i, 0,kScreenWidth/(title.count) , 30);
+        [_btnBgView addSubview:btn];
         
         btn.tag = 100 + i;
         [btn setTitle:title[i] forState:UIControlStateNormal];
@@ -71,18 +77,18 @@
     }
     if (bottomLine) {
         _slideLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, kScreenWidth/(title.count), 2)];
-        [self addSubview:_slideLabel];
+        [_btnBgView addSubview:_slideLabel];
         _slideLabel.backgroundColor = [UIColor redColor];
-    }else{
-        
     }
+    
 }
+
 /**
  *  创建PageviewController
  *
  *  @param VcArray 
  */
-- (void)createPageViewController:(NSArray *)VcArray
+- (void)createPageViewController:(NSArray *)VcArray  addChildViewController:(UIViewController *)controller
 {
     _vcArray = [[NSMutableArray alloc] init];
     for (NSInteger i = 0; i < VcArray.count; i++) {
@@ -94,14 +100,18 @@
     [_pageViewController setViewControllers:@[_vcArray[0]] direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL finished) {
         
     }];
-    _pageViewController.delegate = self;
+    _pageViewController.delegate   = self;
     _pageViewController.dataSource = self;
-    
+
     _pageViewController.view.frame = CGRectMake(0, 33, kScreenWidth, self.frame.size.height - 30 - 2);
     
     [self addSubview:_pageViewController.view];
     
+    // 添加子视图控制器
+    [controller addChildViewController:_pageViewController];
+    
 }
+
 #pragma mark - UIPageViewControllerDelegate
 // 向前滑动时调用
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
@@ -116,6 +126,7 @@
     // 如果不是最后一页,返回数组中的下一个视图
     return _vcArray[index + 1];
 }
+
 // 向后滑动时调用
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
@@ -134,7 +145,7 @@
 {
     // 当前视图在此数组中第0个位置
     UIViewController *vc = pageViewController.viewControllers[0];
-    self.currentPage = [_vcArray indexOfObject:vc];
+    self.currentPage     = [_vcArray indexOfObject:vc];
     [self moveSlideLineWithIndex:_currentPage];
 }
 

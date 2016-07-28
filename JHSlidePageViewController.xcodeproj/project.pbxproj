@@ -246,7 +246,7 @@
 				TargetAttributes = {
 					52CE89CE1D2B8712004E2E2A = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = DG436C2BS3;
+						DevelopmentTeam = 5UB324DE42;
 					};
 					52CE89E71D2B8712004E2E2A = {
 						CreatedOnToolsVersion = 7.3;
@@ -462,10 +462,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = JHSlidePageViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kuxing.JHSlidePageViewController;
+				PRODUCT_BUNDLE_IDENTIFIER = kuxing.JHSlidePageView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -474,10 +476,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = JHSlidePageViewController/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = kuxing.JHSlidePageViewController;
+				PRODUCT_BUNDLE_IDENTIFIER = kuxing.JHSlidePageView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -546,6 +550,7 @@
 				52CE89FE1D2B8712004E2E2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52CE89FF1D2B8712004E2E2A /* Build configuration list for PBXNativeTarget "JHSlidePageViewControllerTests" */ = {
 			isa = XCConfigurationList;
@@ -554,6 +559,7 @@
 				52CE8A011D2B8712004E2E2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52CE8A021D2B8712004E2E2A /* Build configuration list for PBXNativeTarget "JHSlidePageViewControllerUITests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +568,7 @@
 				52CE8A041D2B8712004E2E2A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

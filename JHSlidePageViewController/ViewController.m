@@ -9,7 +9,7 @@
 //宽度
 #define kScreenWidth [UIScreen mainScreen].bounds.size.width
 //高度
-#define kScreenHeight [UIScreen mainScreen].bounds.size.heigh
+#define kScreenHeight [UIScreen mainScreen].bounds.size.height
 
 #import "ViewController.h"
 #import "JHRootPageView.h"
@@ -32,14 +32,11 @@
     NSArray *vcArray = @[@"JHOneViewController",@"JHTwoViewController",@"JHThreeViewController",@"JHFourViewController"];
     NSArray *btnTitle = @[@"One",@"Two",@"Three",@"Four"];
     
-    JHRootPageView *rootPageView = [[JHRootPageView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth,800) controllers:vcArray title:btnTitle type:YES];
+    JHRootPageView *rootPageView = [[JHRootPageView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth,kScreenHeight - 64) controllers:vcArray title:btnTitle type:YES addController:self];
 
-    // 务必加上此行代码
-    [self addChildViewController:rootPageView.pageViewController];
-    
+    rootPageView.btnBgView.backgroundColor = [UIColor yellowColor];
+
     [self.view addSubview:rootPageView];
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
