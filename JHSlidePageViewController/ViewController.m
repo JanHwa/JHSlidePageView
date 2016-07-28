@@ -29,12 +29,17 @@
 
 - (void)createUI
 {
-    NSArray *vcArray = @[@"JHOneViewController",@"JHTwoViewController",@"JHThreeViewController",@"JHFourViewController"];
-    NSArray *btnTitle = @[@"One",@"Two",@"Three",@"Four"];
+    NSArray *vcArray = @[@"JHOneViewController",@"JHTwoViewController",@"JHThreeViewController",@"JHFourViewController",@"JHFiveViewController"];
+    NSArray *btnTitle = @[@"One",@"Two",@"Three",@"Four",@"Five"];
     
-    JHRootPageView *rootPageView = [[JHRootPageView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth,kScreenHeight - 64) controllers:vcArray title:btnTitle type:YES addController:self];
+    JHRootPageView *rootPageView = [[JHRootPageView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth,kScreenHeight - 64)
+                                                             controllers:vcArray
+                                                                   title:btnTitle
+                                                                    type:YES
+                                                           addController:self
+                                                               btnHeight:40];
 
-    rootPageView.btnBgView.backgroundColor = [UIColor yellowColor];
+//    rootPageView.btnBgView.backgroundColor = [UIColor yellowColor];
 
     [self.view addSubview:rootPageView];
 }

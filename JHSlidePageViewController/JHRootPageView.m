@@ -18,9 +18,14 @@
     NSMutableArray *_vcArray;
 }
 
+/**
+ *  pageViewController
+ */
+@property (nonatomic, strong) UIPageViewController *pageViewController;
 
-@property (nonatomic, assign) NSInteger currentPage;
-@property (nonatomic, assign) BOOL isBottom; // 是否有底部滑线
+@property (nonatomic, assign) NSInteger currentPage; // 当前所在的页数
+@property (nonatomic, assign) BOOL isBottom;         // 是否有底部滑线
+@property (nonatomic, assign) CGFloat btnHeight;     // 按钮的高度
 
 @end
 
@@ -28,27 +33,30 @@
 @implementation JHRootPageView
 
 /**
- *  初始化PageViewController
- *
- *  @param frame      视图位置大小
- *  @param array      视图数组
- *  @param title      按钮标题
- *  @param bottomLine 是否有地步滑动条
- *
- *  @return
- */
+*  初始化PageViewController
+*
+*  @param frame      视图位置大小
+*  @param VcArray    视图数组
+*  @param title      按钮标题
+*  @param bottomLine 是否有底部滑动条
+*  @param controller 所在的视图控制器
+*  @param height     按钮的高度
+*
+*  @return
+*/
 - (instancetype)initWithFrame:(CGRect)frame
                   controllers:(NSArray *)VcArray
                         title:(NSArray *)title
                          type:(BOOL)bottomLine
                 addController:(UIViewController *)controller
-
+                    btnHeight:(CGFloat)height
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self createButtonTitle:title withBottomLine:bottomLine];
-        [self createPageViewController:VcArray addChildViewController:controller];
+        [self createButtonTitle:title withBottomLine:bottomLine btnHeight:height];
+        [self createPageViewController:VcArray addChildViewController:controller btnHeight:height];
         _isBottom = bottomLine;
+        _btnHeight = height;
     }
     return self;
 }
@@ -58,14 +66,14 @@
  *
  *  @param title 按钮标题数组
  */
-- (void)createButtonTitle:(NSArray *)title withBottomLine:(BOOL)bottomLine
+- (void)createButtonTitle:(NSArray *)title withBottomLine:(BOOL)bottomLine btnHeight:(CGFloat)height
 {
-    _btnBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 30)];
+    _btnBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, height)];
     [self addSubview:_btnBgView];
     
     for (NSInteger i = 0; i < title.count; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame     = CGRectMake(kScreenWidth/(title.count) *i, 0,kScreenWidth/(title.count) , 30);
+        btn.frame     = CGRectMake(kScreenWidth/(title.count) *i, 0,kScreenWidth/(title.count) , height);
         [_btnBgView addSubview:btn];
         
         btn.tag = 100 + i;
@@ -76,7 +84,7 @@
         
     }
     if (bottomLine) {
-        _slideLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 30, kScreenWidth/(title.count), 2)];
+        _slideLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, height, kScreenWidth/(title.count), 2)];
         [_btnBgView addSubview:_slideLabel];
         _slideLabel.backgroundColor = [UIColor redColor];
     }
@@ -88,7 +96,7 @@
  *
  *  @param VcArray 
  */
-- (void)createPageViewController:(NSArray *)VcArray  addChildViewController:(UIViewController *)controller
+- (void)createPageViewController:(NSArray *)VcArray  addChildViewController:(UIViewController *)controller btnHeight:(CGFloat)height
 {
     _vcArray = [[NSMutableArray alloc] init];
     for (NSInteger i = 0; i < VcArray.count; i++) {
@@ -103,7 +111,7 @@
     _pageViewController.delegate   = self;
     _pageViewController.dataSource = self;
 
-    _pageViewController.view.frame = CGRectMake(0, 33, kScreenWidth, self.frame.size.height - 30 - 2);
+    _pageViewController.view.frame = CGRectMake(0, (height + 3), kScreenWidth, self.frame.size.height - height - 2);
     
     [self addSubview:_pageViewController.view];
     
@@ -168,7 +176,7 @@
 /**
  *  滑动线条的移动 按钮的选中
  */
-- (void)moveSlideLineWithIndex:(NSInteger)index {
+- (void)moveSlideLineWithIndex:(NSInteger)index{
     
     if (_isBottom) {
         for (NSInteger i = 0; i < _vcArray.count; i++) {
@@ -180,7 +188,7 @@
             }
         }
         [UIView animateWithDuration:0.3 animations:^{
-            _slideLabel.frame = CGRectMake(kScreenWidth/(_vcArray.count) * index, 30, kScreenWidth/(_vcArray.count), 2);
+            _slideLabel.frame = CGRectMake(kScreenWidth/(_vcArray.count) * index,_btnHeight, kScreenWidth/(_vcArray.count), 2);
         }];
     }else{
         for (NSInteger i = 0; i < _vcArray.count; i++) {

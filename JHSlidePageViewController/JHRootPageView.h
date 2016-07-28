@@ -12,14 +12,11 @@
 
 
 /**
- *  选择按钮的父视图
+ *  按钮的父视图
  */
 @property (nonatomic, strong) UIView *btnBgView;
 
-/**
- *  pageViewController
- */
-@property (nonatomic, strong) UIPageViewController *pageViewController;
+
 
 /**
  *  滑动条
@@ -33,7 +30,8 @@
  *  @param VcArray    视图数组
  *  @param title      按钮标题
  *  @param bottomLine 是否有底部滑动条
- *  @param controller 添加到所在的控制器
+ *  @param controller 所在的视图控制器
+ *  @param height     按钮的高度
  *
  *  @return
  */
@@ -41,7 +39,8 @@
                   controllers:(NSArray *)VcArray
                         title:(NSArray *)title
                          type:(BOOL)bottomLine
-                addController:(UIViewController *)controller;
+                addController:(UIViewController *)controller
+                    btnHeight:(CGFloat)height;
 
 
 @end
