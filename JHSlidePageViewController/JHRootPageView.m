@@ -26,6 +26,7 @@
 @property (nonatomic, assign) NSInteger currentPage; // 当前所在的页数
 @property (nonatomic, assign) BOOL isBottom;         // 是否有底部滑线
 @property (nonatomic, assign) CGFloat btnHeight;     // 按钮的高度
+@property (nonatomic, assign) NSInteger titleCount; // 按钮标题字数
 
 @end
 
@@ -33,27 +34,32 @@
 @implementation JHRootPageView
 
 /**
-*  初始化PageViewController
-*
-*  @param frame      视图位置大小
-*  @param VcArray    视图数组
-*  @param title      按钮标题
-*  @param bottomLine 是否有底部滑动条
-*  @param controller 所在的视图控制器
-*  @param height     按钮的高度
-*
-*  @return
-*/
+ *  初始化PageViewController
+ *
+ *  @param frame      视图位置大小
+ *  @param VcArray    视图数组
+ *  @param title      按钮标题
+ *  @param bottomLine 是否有底部滑动条
+ *  @param controller 所在的视图控制器
+ *  @param height     按钮的高度
+ *
+ *  @return
+ */
 - (instancetype)initWithFrame:(CGRect)frame
                   controllers:(NSArray *)VcArray
                         title:(NSArray *)title
                          type:(BOOL)bottomLine
                 addController:(UIViewController *)controller
                     btnHeight:(CGFloat)height
+               btnNormalColor:(UIColor *)normalColor
+               btnSelectcolor:(UIColor *)selectcolor
+
+
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self createButtonTitle:title withBottomLine:bottomLine btnHeight:height];
+        [self createButtonTitle:title withBottomLine:bottomLine btnHeight:height btnNormalColor:(UIColor *)normalColor
+                 btnSelectcolor:(UIColor *)selectcolor];
         [self createPageViewController:VcArray addChildViewController:controller btnHeight:height];
         _isBottom = bottomLine;
         _btnHeight = height;
@@ -64,12 +70,18 @@
 /**
  *  初始化按钮
  *
- *  @param title 按钮标题数组
+ *  @param title      按钮的标题
+ *  @param bottomLine 是否有底部滑动线条
+ *  @param height     按钮的高度
  */
-- (void)createButtonTitle:(NSArray *)title withBottomLine:(BOOL)bottomLine btnHeight:(CGFloat)height
+- (void)createButtonTitle:(NSArray *)title withBottomLine:(BOOL)bottomLine btnHeight:(CGFloat)height btnNormalColor:(UIColor *)normalColor
+           btnSelectcolor:(UIColor *)selectcolor
 {
-    _btnBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, height)];
+    _btnBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, height-2)];
     [self addSubview:_btnBgView];
+    
+    _titleCount = [title[0] length];
+    
     
     for (NSInteger i = 0; i < title.count; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -78,15 +90,24 @@
         
         btn.tag = 100 + i;
         [btn setTitle:title[i] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        [btn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        [btn setTitleColor:normalColor forState:UIControlStateNormal];
+        [btn setTitleColor:selectcolor forState:UIControlStateSelected];
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         
     }
     if (bottomLine) {
-        _slideLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, height, kScreenWidth/(title.count), 2)];
+        
+        UIButton *btn = [self viewWithTag:100];
+        _slideLabel = [[UILabel alloc] init];
         [_btnBgView addSubview:_slideLabel];
-        _slideLabel.backgroundColor = [UIColor redColor];
+        _slideLabel.backgroundColor = [UIColor blackColor];
+        
+        [_slideLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.height.mas_equalTo(@2);
+            make.top.equalTo(_btnBgView.mas_bottom).offset(3);
+            make.width.mas_equalTo(kScreenWidth *0.06 *_titleCount);
+            make.centerX.equalTo(btn.mas_centerX);
+        }];
     }
     
 }
@@ -94,7 +115,7 @@
 /**
  *  创建PageviewController
  *
- *  @param VcArray 
+ *  @param VcArray
  */
 - (void)createPageViewController:(NSArray *)VcArray  addChildViewController:(UIViewController *)controller btnHeight:(CGFloat)height
 {
@@ -110,7 +131,7 @@
     }];
     _pageViewController.delegate   = self;
     _pageViewController.dataSource = self;
-
+    
     _pageViewController.view.frame = CGRectMake(0, (height + 3), kScreenWidth, self.frame.size.height - height - 2);
     
     [self addSubview:_pageViewController.view];
@@ -170,7 +191,7 @@
     }];
     self.currentPage = index;
     [self moveSlideLineWithIndex:index];
-
+    
 }
 
 /**
@@ -179,6 +200,7 @@
 - (void)moveSlideLineWithIndex:(NSInteger)index{
     
     if (_isBottom) {
+        UIButton *selectBtn = [self viewWithTag:100 + index];
         for (NSInteger i = 0; i < _vcArray.count; i++) {
             UIButton *btn = [self viewWithTag:100 + i];
             if (index == btn.tag - 100) {
@@ -187,9 +209,18 @@
                 btn.selected = NO;
             }
         }
+        
         [UIView animateWithDuration:0.3 animations:^{
-            _slideLabel.frame = CGRectMake(kScreenWidth/(_vcArray.count) * index,_btnHeight, kScreenWidth/(_vcArray.count), 2);
+            
+            [_slideLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
+                make.height.mas_equalTo(@2);
+                make.top.equalTo(_btnBgView.mas_bottom).offset(3);
+                make.width.mas_equalTo(kScreenWidth *0.06 *_titleCount);
+                make.centerX.equalTo(selectBtn.mas_centerX);
+            }];
+            [_slideLabel.superview layoutIfNeeded];
         }];
+        
     }else{
         for (NSInteger i = 0; i < _vcArray.count; i++) {
             UIButton *btn = [self viewWithTag:100 + i];
@@ -199,17 +230,17 @@
                 btn.selected = NO;
             }
         }
-
+        
     }
-
+    
 }
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end

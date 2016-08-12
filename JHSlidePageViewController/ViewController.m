@@ -37,9 +37,10 @@
                                                                    title:btnTitle
                                                                     type:YES
                                                            addController:self
-                                                               btnHeight:40];
+                                                               btnHeight:40
+                                                          btnNormalColor:[UIColor grayColor]
+                                                          btnSelectcolor:[UIColor redColor]];
 
-//    rootPageView.btnBgView.backgroundColor = [UIColor yellowColor];
 
     [self.view addSubview:rootPageView];
 }
