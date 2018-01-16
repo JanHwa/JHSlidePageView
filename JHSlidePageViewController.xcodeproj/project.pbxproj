@@ -15,7 +15,7 @@
 		52CE89E21D2B8712004E2E2A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 52CE89E01D2B8712004E2E2A /* LaunchScreen.storyboard */; };
 		52CE89ED1D2B8712004E2E2A /* JHSlidePageViewControllerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE89EC1D2B8712004E2E2A /* JHSlidePageViewControllerTests.m */; };
 		52CE89F81D2B8712004E2E2A /* JHSlidePageViewControllerUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE89F71D2B8712004E2E2A /* JHSlidePageViewControllerUITests.m */; };
-		52CE8A081D2B87D8004E2E2A /* JHRootPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8A071D2B87D8004E2E2A /* JHRootPageView.m */; };
+		52CE8A081D2B87D8004E2E2A /* JHPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8A071D2B87D8004E2E2A /* JHPageView.m */; };
 		52CE8A0B1D2B9B20004E2E2A /* JHOneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8A0A1D2B9B20004E2E2A /* JHOneViewController.m */; };
 		52CE8A0E1D2B9B2D004E2E2A /* JHTwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8A0D1D2B9B2D004E2E2A /* JHTwoViewController.m */; };
 		52CE8A111D2B9B38004E2E2A /* JHThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52CE8A101D2B9B38004E2E2A /* JHThreeViewController.m */; };
@@ -68,8 +68,8 @@
 		52CE89F31D2B8712004E2E2A /* JHSlidePageViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JHSlidePageViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52CE89F71D2B8712004E2E2A /* JHSlidePageViewControllerUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JHSlidePageViewControllerUITests.m; sourceTree = "<group>"; };
 		52CE89F91D2B8712004E2E2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		52CE8A061D2B87D8004E2E2A /* JHRootPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHRootPageView.h; sourceTree = "<group>"; };
-		52CE8A071D2B87D8004E2E2A /* JHRootPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHRootPageView.m; sourceTree = "<group>"; };
+		52CE8A061D2B87D8004E2E2A /* JHPageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHPageView.h; sourceTree = "<group>"; };
+		52CE8A071D2B87D8004E2E2A /* JHPageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHPageView.m; sourceTree = "<group>"; };
 		52CE8A091D2B9B20004E2E2A /* JHOneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHOneViewController.h; sourceTree = "<group>"; };
 		52CE8A0A1D2B9B20004E2E2A /* JHOneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JHOneViewController.m; sourceTree = "<group>"; };
 		52CE8A0C1D2B9B2D004E2E2A /* JHTwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JHTwoViewController.h; sourceTree = "<group>"; };
@@ -210,8 +210,8 @@
 		52CE8A051D2B8791004E2E2A /* JHSlidePageView */ = {
 			isa = PBXGroup;
 			children = (
-				52CE8A061D2B87D8004E2E2A /* JHRootPageView.h */,
-				52CE8A071D2B87D8004E2E2A /* JHRootPageView.m */,
+				52CE8A061D2B87D8004E2E2A /* JHPageView.h */,
+				52CE8A071D2B87D8004E2E2A /* JHPageView.m */,
 			);
 			name = JHSlidePageView;
 			sourceTree = "<group>";
@@ -387,7 +387,7 @@
 				52E199661D5DCF4A0057D38B /* MASViewAttribute.m in Sources */,
 				52CE8A0E1D2B9B2D004E2E2A /* JHTwoViewController.m in Sources */,
 				52CE89DA1D2B8712004E2E2A /* ViewController.m in Sources */,
-				52CE8A081D2B87D8004E2E2A /* JHRootPageView.m in Sources */,
+				52CE8A081D2B87D8004E2E2A /* JHPageView.m in Sources */,
 				52E199621D5DCF4A0057D38B /* MASCompositeConstraint.m in Sources */,
 				52E199641D5DCF4A0057D38B /* MASConstraintMaker.m in Sources */,
 				52E1996A1D5DCF4A0057D38B /* View+MASAdditions.m in Sources */,

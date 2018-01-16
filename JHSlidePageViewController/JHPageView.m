@@ -1,5 +1,5 @@
 //
-//  JHRootPageView.m
+//  JHPageView.m
 //  JHSlidePageViewController
 //
 //  Created by John on 16/7/5.
@@ -7,13 +7,18 @@
 //
 
 //宽度
-#define kScreenWidth [UIScreen mainScreen].bounds.size.width
+#define kScreenWidth    [UIScreen mainScreen].bounds.size.width
 //高度
-#define kScreenHeight [UIScreen mainScreen].bounds.size.height
+#define kScreenHeight   [UIScreen mainScreen].bounds.size.height
 
-#import "JHRootPageView.h"
+#define ANIMATION_DUTATIONA 0.2
 
-@interface JHRootPageView ()<UIPageViewControllerDelegate,UIPageViewControllerDataSource>
+#import "JHPageView.h"
+
+@interface JHPageView ()
+<UIPageViewControllerDelegate,
+UIPageViewControllerDataSource>
+
 {
     NSMutableArray *_vcArray;
 }
@@ -23,15 +28,50 @@
  */
 @property (nonatomic, strong) UIPageViewController *pageViewController;
 
-@property (nonatomic, assign) NSInteger currentPage; // 当前所在的页数
-@property (nonatomic, assign) BOOL isBottom;         // 是否有底部滑线
-@property (nonatomic, assign) CGFloat btnHeight;     // 按钮的高度
-@property (nonatomic, assign) NSInteger titleCount; // 按钮标题字数
+@property (nonatomic, assign) NSInteger currentPage;    // 当前所在的页数
+@property (nonatomic, assign) BOOL isBottom;            // 是否有底部滑线
+@property (nonatomic, assign) CGFloat btnHeight;        // 按钮的高度
+@property (nonatomic, assign) NSInteger titleCount;     // 按钮标题字数
+
+
 
 @end
 
 
-@implementation JHRootPageView
+@implementation JHPageView
+
+- (NSMutableArray *)btnArray {
+    if (_btnArray == nil) {
+        _btnArray = [[NSMutableArray alloc] init];
+    }
+    return _btnArray;
+}
+
+- (void)setShowLine:(BOOL)showLine {
+    if (_showLine != showLine) {
+        _showLine = showLine;
+    }
+}
+
+- (void)setFont:(UIFont *)font {
+    if (_font != font) {
+        _font = font;
+        @autoreleasepool {
+            [self.btnArray enumerateObjectsUsingBlock:^(UIButton  *_Nonnull btn, NSUInteger idx, BOOL * _Nonnull stop) {
+                btn.titleLabel.font = _font;
+            }];
+        }
+    }
+}
+
+- (void)setslideWidth:(CGFloat)slideWidth {
+    if (_slideWidth != slideWidth) {
+        _slideWidth = slideWidth;
+        [_slideLabel mas_updateConstraints:^(MASConstraintMaker *make) {
+           make.width.mas_equalTo(@(_slideWidth));
+        }];
+    }
+}
 
 /**
  *  初始化PageViewController
@@ -52,17 +92,16 @@
                 addController:(UIViewController *)controller
                     btnHeight:(CGFloat)height
                btnNormalColor:(UIColor *)normalColor
-               btnSelectcolor:(UIColor *)selectcolor
-
-
-{
+               btnSelectcolor:(UIColor *)selectcolor {
     self = [super initWithFrame:frame];
     if (self) {
+        _isBottom = bottomLine;
+        _btnHeight = height;
+        self.slideWidth = 10.f;
+        
         [self createButtonTitle:title withBottomLine:bottomLine btnHeight:height btnNormalColor:(UIColor *)normalColor
                  btnSelectcolor:(UIColor *)selectcolor];
         [self createPageViewController:VcArray addChildViewController:controller btnHeight:height];
-        _isBottom = bottomLine;
-        _btnHeight = height;
     }
     return self;
 }
@@ -74,27 +113,35 @@
  *  @param bottomLine 是否有底部滑动线条
  *  @param height     按钮的高度
  */
-- (void)createButtonTitle:(NSArray *)title withBottomLine:(BOOL)bottomLine btnHeight:(CGFloat)height btnNormalColor:(UIColor *)normalColor
-           btnSelectcolor:(UIColor *)selectcolor
-{
+- (void)createButtonTitle:(NSArray *)title
+           withBottomLine:(BOOL)bottomLine
+                btnHeight:(CGFloat)height
+           btnNormalColor:(UIColor *)normalColor
+           btnSelectcolor:(UIColor *)selectcolor {
     _btnBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, height-2)];
     [self addSubview:_btnBgView];
     
     _titleCount = [title[0] length];
     
+    __weak typeof(self) weakSelf = self;
     
-    for (NSInteger i = 0; i < title.count; i++) {
+    [title enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame     = CGRectMake(kScreenWidth/(title.count) *i, 0,kScreenWidth/(title.count) , height);
+        btn.frame     = CGRectMake(kScreenWidth/(title.count) *idx, 0,kScreenWidth/(title.count) , height);
         [_btnBgView addSubview:btn];
         
-        btn.tag = 100 + i;
-        [btn setTitle:title[i] forState:UIControlStateNormal];
+        if (idx == 0) {
+            btn.selected = YES;
+        }
+        btn.tag = 100 + idx;
+        [btn setTitle:title[idx] forState:UIControlStateNormal];
         [btn setTitleColor:normalColor forState:UIControlStateNormal];
         [btn setTitleColor:selectcolor forState:UIControlStateSelected];
         [btn addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
         
-    }
+        [weakSelf.btnArray addObject:btn];
+    }];
+
     if (bottomLine) {
         
         UIButton *btn = [self viewWithTag:100];
@@ -104,12 +151,11 @@
         
         [_slideLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.height.mas_equalTo(@2);
-            make.top.equalTo(_btnBgView.mas_bottom).offset(3);
-            make.width.mas_equalTo(kScreenWidth *0.06 *_titleCount);
+            make.top.equalTo(_btnBgView.mas_bottom).offset(2);
+            make.width.mas_equalTo(@(_slideWidth));
             make.centerX.equalTo(btn.mas_centerX);
         }];
     }
-    
 }
 
 /**
@@ -138,7 +184,6 @@
     
     // 添加子视图控制器
     [controller addChildViewController:_pageViewController];
-    
 }
 
 #pragma mark - UIPageViewControllerDelegate
@@ -149,7 +194,7 @@
     
     // 当前页是最后一页的时候返回nil
     if (index == _vcArray.count - 1) {
-        
+        NSLog(@"这里是我的底线");
         return nil;
     }
     // 如果不是最后一页,返回数组中的下一个视图
@@ -163,6 +208,7 @@
     
     // 如果当前页是第0页,返回nil
     if (index == 0) {
+        NSLog(@"起跑线");
         return nil;
     }
     // else 返回数组中上一个视图
@@ -201,46 +247,37 @@
     
     if (_isBottom) {
         UIButton *selectBtn = [self viewWithTag:100 + index];
-        for (NSInteger i = 0; i < _vcArray.count; i++) {
-            UIButton *btn = [self viewWithTag:100 + i];
+        [_vcArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            UIButton *btn = [self viewWithTag:100 + idx];
             if (index == btn.tag - 100) {
                 btn.selected = YES;
             }else{
                 btn.selected = NO;
             }
-        }
+        }];
         
-        [UIView animateWithDuration:0.3 animations:^{
+        [UIView animateWithDuration:ANIMATION_DUTATIONA animations:^{
             
             [_slideLabel mas_remakeConstraints:^(MASConstraintMaker *make) {
                 make.height.mas_equalTo(@2);
-                make.top.equalTo(_btnBgView.mas_bottom).offset(3);
-                make.width.mas_equalTo(kScreenWidth *0.06 *_titleCount);
+                make.top.equalTo(_btnBgView.mas_bottom).offset(2);
+                make.width.mas_equalTo(@(_slideWidth));
                 make.centerX.equalTo(selectBtn.mas_centerX);
             }];
             [_slideLabel.superview layoutIfNeeded];
         }];
         
     }else{
-        for (NSInteger i = 0; i < _vcArray.count; i++) {
-            UIButton *btn = [self viewWithTag:100 + i];
+        [_vcArray enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            UIButton *btn = [self viewWithTag:100 + idx];
             if (index == btn.tag - 100) {
                 btn.selected = YES;
             }else{
                 btn.selected = NO;
             }
-        }
-        
+        }];
     }
-    
 }
 
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect {
- // Drawing code
- }
- */
 
 @end

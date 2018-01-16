@@ -1,5 +1,5 @@
 //
-//  JHRootPageView.h
+//  JHPageView.h
 //  JHSlidePageViewController
 //
 //  Created by John on 16/7/5.
@@ -9,7 +9,23 @@
 #import <UIKit/UIKit.h>
 #import "Masonry.h"
 
-@interface JHRootPageView : UIView
+@interface JHPageView : UIView
+
+
+/**
+ 是否显示分割线（按钮间的分割线，默认不显示）
+ */
+@property (assign, nonatomic) BOOL showLine;
+
+/**
+ 按钮标题字体
+ */
+@property (strong, nonatomic) UIFont *font;
+
+/**
+ 滑动条的宽度（默认10.f)
+ */
+@property (assign, nonatomic) CGFloat slideWidth;
 
 /**
  *  按钮的父视图
@@ -20,6 +36,12 @@
  *  滑动条
  */
 @property (nonatomic, strong) UILabel *slideLabel;
+
+
+/**
+ 按钮数组
+ */
+@property (strong, nonatomic) NSMutableArray *btnArray;
 
 /**
  *  初始化PageViewController
